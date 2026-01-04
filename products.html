@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GlowBeauty Shop</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="products.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="navbar reveal">
+  <a href="index.html" class="back-arrow">&#8592;</a>
+  <h1 class="brand">GlowBeauty</h1>
+</header>
+
+<!-- Categories -->
+<section class="categories reveal">
+  <h2>Popular Categories</h2>
+
+  <div class="categories-list">
+    <div class="category">
+      <img src="images/SkinCare.png" alt="">
+      <span>Skin Care</span>
+    </div>
+    <div class="category">
+      <img src="images/BathOils.png" alt="">
+      <span>Bath Oils</span>
+    </div>
+    <div class="category">
+      <img src="images/Candles.png" alt="">
+      <span>Candles</span>
+    </div>
+    <div class="category">
+      <img src="images/BodyCare.png" alt="">
+      <span>Body Care</span>
+    </div>
+  </div>
+</section>
+
+<!-- Highlight -->
+<section class="highlight reveal">
+  <!-- الصورة الرئيسية -->
+  <div class="highlight-image">
+    <img src="images/highlight.png" alt="Main Highlight">
+  </div>
+
+  <!-- النص -->
+  <div class="highlight-text">
+    <h3>Discover a World of Natural Glow</h3>
+    <p>
+      Carefully crafted herbal products designed to nourish your skin
+      and elevate your daily rituals.
+    </p>
+
+    <!-- الصور الصغيرة أسفل النص -->
+    <div class="random-images">
+      <img src="images/small1.png" alt="" class="random-img circle">
+      <img src="images/small2.png" alt="" class="random-img square">
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Products -->
+<section class="products-section">
+  <p class="motivational-text">
+    Having a special place set aside for something you love makes it more likely you'll do it!
+  </p>
+
+  <div class="products-grid">
+    <div class="product">
+      <div class="heart">&#9825;</div>
+      <img src="images/HerbalOil.png" alt="">
+      <h4>Herbal Oil</h4>
+      <span>1800 DA</span>
+      <button class="shop-btn">Shop</button>
+    </div>
+
+    <div class="product">
+      <div class="heart">&#9825;</div>
+      <img src="images/NaturalSerum.png" alt="">
+      <h4>Natural Serum</h4>
+      <span>2200 DA</span>
+      <button class="shop-btn">Shop</button>
+    </div>
+
+    <div class="product">
+      <div class="heart">&#9825;</div>
+      <img src="images/SkinEssence.png" alt="">
+      <h4>Skin Essence</h4>
+      <span>1900 DA</span>
+      <button class="shop-btn">Shop</button>
+    </div>
+
+    <div class="product">
+      <div class="heart">&#9825;</div>
+      <img src="images/GlowDrops.png" alt="">
+      <h4>Glow Drops</h4>
+      <span>2500 DA</span>
+      <button class="shop-btn">Shop</button>
+    </div>
+    <div class="product">
+      <div class="heart">&#9825;</div>
+      <img src="images/pomada.webp" alt="">
+      <h4>Skin Cream</h4>
+      <span>1900 DA</span>
+      <button class="shop-btn">Shop</button>
+    </div>
+
+    <div class="product">
+      <div class="heart">&#9825;</div>
+      <img src="images/seroma.webp" alt="">
+      <h4>Serom Skin</h4>
+      <span>2500 DA</span>
+      <button class="shop-btn">Shop</button>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    
+    <!-- أيقونات التواصل على اليسار -->
+    <div class="footer-social">
+      <a href="#"><img src="images/insta.png" alt="Instagram"></a>
+      <a href="#"><img src="images/tiktok.png" alt="TikTok"></a>
+      <a href="#"><img src="images/facbook.png" alt="Facebook"></a>
+    </div>
+
+    <!-- اسم الموقع في الوسط -->
+    <div class="footer-logo">
+      <h2>GlowBeauty</h2>
+    </div>
+
+    <!-- روابط Footer على اليمين -->
+    <div class="footer-links">
+  <a href="index.html#about">About</a>
+  <a href="index.html#products">Products</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+
+  </div>
+  <p class="footer-copy"> 2025 GlowBeauty. All rights reserved.</p>
+</footer>
+
+<script>
+  // تغيير القلب عند الضغط
+  const hearts = document.querySelectorAll('.heart');
+  hearts.forEach(heart => {
+    heart.addEventListener('click', () => {
+      if (heart.textContent === '♡') {
+        heart.textContent = '♥';
+      } else {
+        heart.textContent = '♡';
+      }
+    });
+  });
+</script>
+
+
+<!-- Animation Script -->
+<script>
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      obs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

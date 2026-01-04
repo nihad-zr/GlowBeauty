@@ -1,0 +1,475 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* يغطي كامل الشاشة */
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* يملأ الفيديو بدون تشويه */
+  z-index: -1; /* خلف المحتوى */
+}
+
+.hero-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* النص على اليسار */
+  height: 100%;
+  padding-left: 50px;
+  color: #fff;
+  max-width: 600px;
+}
+
+.hero-content .logo {
+  width: 80px;
+  margin-bottom: 20px;
+
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.hero-content .btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #ff7f7f; /* وردي فاتح */
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: background 0.3s;
+}
+
+.hero-content .btn:hover {
+  background-color: #ff4f4f;
+}
+.about {
+  padding: 80px 50px;
+  background-color: #fff8f5;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ff7f7f;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.icons {
+  display: flex;
+  gap: 40px; /* المسافة بين كل أيقونة */
+  justify-content: center; /* توسيط جميع الأيقونات */
+  flex-wrap: wrap; /* لتكون مرنة على الشاشات الصغيرة */
+}
+
+.icon {
+  display: flex;
+  flex-direction: column; /* نص تحت الصورة */
+  align-items: center;
+  text-align: center;
+  max-width: 120px; /* عرض موحد لكل أيقونة */
+}
+
+.icon img {
+  width: 70px;
+  margin-bottom: 12px; /* مسافة بين الصورة والنص */
+  border-radius: 12px; /* اختيارية لجعل الأيقونة ناعمة */
+}
+
+.icon span {
+  font-size: 0.95rem;
+  color: #555;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* Animations for text & image - once */
+.animate-left-once {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 1s ease-out;
+}
+
+.animate-left-once.visible-once {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-right-once {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 1s ease-out;
+}
+
+.animate-right-once.visible-once {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Icons animation - always on scroll */
+.animate-icon {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.8s ease-out;
+}
+
+.animate-icon.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.animate-icon:hover {
+  transform: scale(1.2) rotate(10deg);
+}
+
+.products {
+  padding: 60px 40px; /* تقليل padding */
+  background-color: #fff;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 3rem; /* حجم كبير */
+  color: #ff7f7f; /* لون وردي */
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* تصغير البطاقات */
+  gap: 25px;
+}
+
+.product-card {
+  background-color: #fff8f5;
+  border-radius: 20px;
+  padding: 15px; /* تقليل padding */
+  box-shadow: 0 0 15px rgba(255,127,127,0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s, box-shadow 0.3s;
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-8px); /* حركة أقل */
+  box-shadow: 0 0 25px rgba(255,127,127,0.5);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 12px; /* أصغر قليلاً */
+  margin-bottom: 12px;
+}
+
+.product-card h3 {
+  font-size: 1.2rem; /* أصغر قليلاً */
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.product-card p {
+  font-size: 0.9rem; /* أصغر قليلاً */
+  color: #555;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  flex-grow: 1;
+}
+
+.product-card .btn-readmore {
+  align-self: flex-end;
+  padding: 6px 16px; /* أصغر قليلاً */
+  background-color: #ff7f7f;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.product-card .btn-readmore:hover {
+  background-color: #ff4f4f;
+}
+.flip-image {
+  position: relative;
+  width: 100%;
+  height: 350px; /* ارتفاع ثابت للصورة */
+  perspective: 1000px;
+  margin-bottom: 15px;
+}
+
+.flip-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.8s;
+}
+
+.flip-image .back {
+  transform: rotateY(180deg);
+}
+
+.flip-image:hover .front {
+  transform: rotateY(180deg);
+}
+
+.flip-image:hover .back {
+  transform: rotateY(0deg);
+}
+
+.testimonials {
+  padding: 80px 50px;
+  background-color: #fff8f5;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 2.5rem;
+  color: #ff7f7f;
+  margin-bottom: 50px;
+}
+
+/* شبكة البطاقات */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* تصميم كل بطاقة */
+.testimonial-card {
+  background-color: #fff;
+  padding: 25px 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(255,127,127,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(255,127,127,0.35);
+}
+
+.testimonial-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.testimonial-card h4 {
+  font-size: 1.1rem;
+  color: #ff7f7f;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.stars {
+  color: #ffb400;
+  font-size: 1rem;
+}
+
+
+
+.ingredients {
+  padding: 80px 50px;
+  background-color: #f4fff7; /* أخضر فاتح هادئ */
+  text-align: center;
+}
+
+.ingredients h2 {
+  font-size: 2.5rem;
+  color: #ff7f7f;
+  margin-bottom: 50px;
+}
+
+.ingredients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.ingredient-card {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.ingredient-card:hover {
+  transform: translateY(-10px);
+}
+
+.ingredient-card img {
+  width: 60px;
+  margin-bottom: 15px;
+}
+
+.ingredient-card h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.ingredient-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.cta {
+  padding: 80px 50px;
+  background-color: #fff0f5; /* خلفية وردية فاتحة */
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #ff4f7f;
+}
+
+.btn-cta {
+  display: inline-block;
+  padding: 15px 40px;
+  background-color: #ff7f7f;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background 0.3s;
+}
+
+.btn-cta:hover {
+  background-color: #ff4f4f;
+}
+.footer {
+  background-color: #050505;
+  padding: 30px 50px;
+  color: #333;
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* أيقونات التواصل */
+.footer-social a {
+  margin-right: 15px;
+  display: inline-block;
+}
+
+.footer-social img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s;
+}
+
+.footer-social a:hover img {
+  transform: scale(1.2);
+}
+
+/* اسم الموقع في الوسط */
+.footer-logo h2 {
+  color: #ff7f7f;
+  font-size: 4rem;
+  margin: 0;
+  text-align: center;
+  flex: 1;
+}
+
+/* روابط Footer على اليمين */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #faf9f9;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #ff7f7f;
+}
+
+/* حقوق الطبع أسفل Footer */
+.footer-copy {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #999;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .footer-links {
+    align-items: center;
+  }
+
+  .footer-social {
+    order: -1; /* لتكون في الأعلى عند الشاشات الصغيرة */
+  }
+}
